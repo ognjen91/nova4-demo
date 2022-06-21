@@ -1,0 +1,191 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+$color-purple : #490B3d;
+$color-pink : #BD1E51;
+$color-yellow : #F1B814;
+
+
+.activities-map__holder{
+    min-height: 80vh;
+
+    &>*{
+        border: 1px solid $color-purple;
+    }
+}
+
+.activities-map__header{
+    height: 80px;
+
+    .pre, .header-city{
+        font-size: 25px;
+        transition: font-size .5s linear;
+        cursor: pointer;
+        &--active{
+            font-weight: 800;
+            font-size: 30px;
+        }
+    }
+
+    .header-city--unset{
+        margin-left: 20px;
+        svg{
+            width: 20px;
+            height: auto;
+            fill: #fff;
+        }
+    }
+}
+
+.activities-map__footer{
+    height: 60px;
+}
+
+.activities-map__the-map-holder,
+.activities-map__the-map,
+.activities-map__aside{
+    height: calc(100vh - 140px);
+}
+
+// ===ASIDE===
+
+.activities-map__aside{
+    padding: 20px;
+}
+
+.activities-map__aside-title{
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.activities-map__aside-entity-title{
+    &::before{
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        content: "";
+        width: 0;
+        border-bottom: 2px solid $color-pink;
+        transition: width .5s ease-in;
+    }
+}
+
+
+.activities-map__aside-city-title{
+    font-size: 25px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+
+    &--active{
+        color: $color-purple;
+        font-weight: 800;
+
+        .activities-map__aside-entity-title::before{
+            width: 100%;;
+        }
+    }
+}
+
+.activities-map__aside-activity-title{
+    font-size: 19px;
+    margin-bottom: 15px;
+
+    &--active{
+        color: $color-pink;
+        font-weight: 800;
+
+
+        .activities-map__aside-entity-title::before{
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+// ==ACTIVE ACTIVITY WINDOW===
+.activities-map__the-map-active-activity{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 35%;
+    min-width: 450px;
+    background-color: #fff;
+    z-index: 100;
+    padding: 10px;
+
+    &-title{
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    &-desc{
+        font-size: 17px;
+    }
+
+    &-close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        cursor: pointer;
+
+        svg{
+            width: 15px;
+            height: auto;
+            fill: $color-purple;
+        }
+    }
+
+    &-categories{
+        padding: 10px;
+    }
+
+    &-category{
+        padding: 5px 10px;
+        margin-right: 10px;
+        margin-bottom: 8px;
+        font-size: 12px;
+    }
+}
+
+
+
+// ======MAP INFO WINDOW=====
+.gmap-info-window__text{
+    padding: 10px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+// ====TRANSITIONS===
+
+
+/* 1. declare transition */
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. declare enter from and leave to state */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
+}
+
+/* 3. ensure leaving items are taken out of layout flow so that moving
+      animations can be calculated correctly. */
+.fade-leave-active {
+  position: absolute;
+}
