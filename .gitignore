@@ -12,3 +12,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/nova-components/SampleCustomField/node_modules
+/nova-components/WelcomeCard/node_modules
